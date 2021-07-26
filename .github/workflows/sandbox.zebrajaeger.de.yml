@@ -2,8 +2,11 @@ on: push
 jobs:
   curl:
     runs-on: ubuntu-latest
+    env:
+      PARAMS: repo=${GITHUB_REPOSITORY}&sha=${GITHUB_SHA}&ref=${GITHUB_REF}&token=TODO
+      FOO: ${{ secrets.GITHUB_TOKEN }}
     steps:
     - name: curl
       uses: wei/curl@v1
       with:
-        args: -X GET "http://sandbox.zebrajaeger.de?repo=${GITHUB_REPOSITORY}&sha=${GITHUB_SHA}&ref=${GITHUB_REF}&token=TODO"
+        args: -X GET "http://sandbox.zebrajaeger.de?$PARAMS"
