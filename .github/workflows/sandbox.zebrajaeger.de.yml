@@ -6,4 +6,4 @@ jobs:
     - name: curl
       uses: wei/curl@v1
       with:
-        args: -X GET http://sandbox.zebrajaeger.de
+        args: -X GET http://sandbox.zebrajaeger.de?x=$GITHUB_REPOSITORY
