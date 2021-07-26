@@ -3,16 +3,16 @@ jobs:
   github-actions-environment-variables-ubuntu:
     runs-on: ubuntu-latest
     env:
-      TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      PARAMS: repo=${{ github.GITHUB_REPOSITORY }}&sha=${{ github.GITHUB_SHA }}$ref=${{ github.GITHUB_REF }}
+      TOKEN: ${{ github.token }}
+      PARAMS: repo=${{ github.repository }}&sha=${{ github.sha }}$ref=${{ github.base_ref }}
     steps:
       - name: List of the GitHub Actions environment variables
         run: env
   curl:
     runs-on: ubuntu-latest
     env:
-      TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      PARAMS: repo=${{ github.GITHUB_REPOSITORY }}&sha=${{ github.GITHUB_SHA }}$ref=${{ github.GITHUB_REF }}
+      TOKEN: ${{ github.token }}
+      PARAMS: repo=${{ github.repository }}&sha=${{ github.sha }}$ref=${{ github.base_ref }}
     steps:
     - name: curl
       uses: wei/curl@v1
