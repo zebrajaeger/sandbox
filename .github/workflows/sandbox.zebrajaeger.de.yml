@@ -4,7 +4,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       FOO: ${{ secrets.GITHUB_TOKEN }}
-      PARAMS: ${{ env.GITHUB_JOB }}
+      PARAMS: ${{ github.GITHUB_REPOSITORY }}
     steps:
     - name: curl
       uses: wei/curl@v1
