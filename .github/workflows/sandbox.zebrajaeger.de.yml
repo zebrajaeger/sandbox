@@ -3,8 +3,8 @@ jobs:
   curl:
     runs-on: ubuntu-latest
     env:
-      PARAMS: repo=${{ GITHUB_REPOSITORY }}&sha=${{ GITHUB_SHA }}&ref=${{ GITHUB_REF }}&token=TODO
       FOO: ${{ secrets.GITHUB_TOKEN }}
+      PARAMS: ${{ GITHUB_REPOSITORY }}
     steps:
     - name: curl
       uses: wei/curl@v1
