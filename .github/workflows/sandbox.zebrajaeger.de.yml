@@ -1,5 +1,10 @@
 on: push
 jobs:
+  github-actions-environment-variables-ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List of the GitHub Actions environment variables on Windows
+        run: env
   curl:
     runs-on: ubuntu-latest
     env:
